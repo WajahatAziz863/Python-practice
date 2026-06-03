@@ -1,9 +1,8 @@
-#counting vowels in a word through for loop
-enter=input("Enter your name:")
-count=0
-for word in enter.lower():
- if word in "aeiou":
-  count=count+1
+#printing numbers from 1 to 10
+for number in range(1,11):  
+ print(number)
 
-print("vowels are:",count)   
-      
+#printing even numbers from 2 to 20
+for number in range(0,21):
+ if number%2==0:
+  print(number)
