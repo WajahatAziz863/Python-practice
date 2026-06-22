@@ -1,23 +1,13 @@
 class Student:
-    def __init__(self,name,marks):
-         self.name=name
-         self.marks=marks
-    def display(self):
-         print('Name:',self.name)
-         print('Marks are:',self.marks)
-    def add_marks(self,improve):
-         self.marks=self.marks+improve
-         print('Improved marks:',self.marks)
-    def grade(self):
-         if self.marks>=80:
-              print('Grade A')
-         elif self.marks>=50:
-              print('Grade B')
-         elif self.marks<50:
-              print('Grade F')
-s1=Student('Wajahat Aziz',77)
-s1.display()
-s1.grade()
-s1.add_marks(15)
-s1.display()
-s1.grade()
+    def __init__(self):
+            self.__marks=0
+    def set_marks(self,marks):
+          if marks<0 or marks>100:
+                print('Invalid marks.')
+          else:
+                self.__marks=marks
+    def get_marks(self):
+          print('Marks:',self.__marks)
+s1=Student()
+s1.set_marks(95)
+s1.get_marks()
