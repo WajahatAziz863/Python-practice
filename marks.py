@@ -1,13 +1,20 @@
-class Student:
-    def __init__(self):
-            self.__marks=0
-    def set_marks(self,marks):
-          if marks<0 or marks>100:
-                print('Invalid marks.')
-          else:
-                self.__marks=marks
-    def get_marks(self):
-          print('Marks:',self.__marks)
-s1=Student()
-s1.set_marks(95)
-s1.get_marks()
+class Person:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+    def display(self):
+       print('Name:',self.name)
+       print('Age:',self.age)
+class Student(Person):
+    def __init__(self,name,age,marks):
+        super().__init__(name,age)
+        self.marks=marks
+    def display_marks(self):
+        print('Marks:',self.marks)
+
+name=input('Enter name:')
+age=int(input('Enter Age:'))
+marks=int(input('Enter marks:'))
+s1=Student(name,age,marks)
+s1.display()
+s1.display_marks()        
