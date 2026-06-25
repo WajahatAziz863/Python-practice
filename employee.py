@@ -1,21 +1,16 @@
 class Employee:
     def __init__(self,name,salary):
-         self.name=name
-         self.salary=salary
-    def display(self):
-        print('Name:',self.name)
-        print('Salary:',self.salary)
+        self.name=name
+        self.salary=salary
+    def calculate_bonus(self):
+        self.base_bonus=self.salary*10/100
+        print('Base bonus is:',self.base_bonus)
 class Manager(Employee):
-    def __init__(self,name,salary,bonus):
-        super().__init__(name,salary)
-        self.bonus=bonus
-    def total_salary(self):
-        total=self.salary+self.bonus
-        print('Total Salary:',total)
+    def calculate_bonus(self):
+        super().calculate_bonus()
+        total_bonus=5000+self.base_bonus
+        print('Total Bonus:',total_bonus)
 name=input('Enter name:')
 salary=int(input('Enter salary:'))
-bonus=int(input('Enter bonus:'))
-m1=Manager(name,salary,bonus)
-m1.display()
-m1.total_salary()
-               
+m1=Manager(name,salary)
+m1.calculate_bonus()

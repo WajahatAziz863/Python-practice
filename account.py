@@ -1,9 +1,19 @@
 class Account:
-    def __init__(self,name,balance):
-        self.name=name
+    def __init__(self,balance):
         self.balance=balance
-    def display(self):
-        print('Name:',self.name)
-        print('Balance:',self.balance)
-a1=Account('Wazir',35000)
-a1.display()
+        print('Original balance:',self.balance)
+    def withdraw(self,amount):
+        if amount>self.balance:
+            print('Insufficient Balance.')
+        else:
+            print('Withdrawn:',amount)
+            self.balance=self.balance-amount
+            print('Remaining Balance:',self.balance)
+class SavingsAccount(Account):
+    def withdraw(self,amount):
+        super().withdraw(amount)
+        if self.balance<5000:
+            print('warning:Balance is low.')
+s1=SavingsAccount(20000)
+s1.withdraw(5000)
+s1.withdraw(13000)
