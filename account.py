@@ -1,19 +1,31 @@
-class Account:
-    def __init__(self,balance):
-        self.balance=balance
-        print('Original balance:',self.balance)
-    def withdraw(self,amount):
-        if amount>self.balance:
-            print('Insufficient Balance.')
+class BankAccount:
+    def transaction(self,amount):
+        print('Processing transaction of:',amount)
+class SavingsAccount(BankAccount):
+    def transaction(self,amount):
+        super().transaction(amount)
+        if amount>10000:
+            print('Withdrawal limit exceeded for savingsaccount.')
         else:
-            print('Withdrawn:',amount)
-            self.balance=self.balance-amount
-            print('Remaining Balance:',self.balance)
-class SavingsAccount(Account):
-    def withdraw(self,amount):
-        super().withdraw(amount)
-        if self.balance<5000:
-            print('warning:Balance is low.')
-s1=SavingsAccount(20000)
-s1.withdraw(5000)
-s1.withdraw(13000)
+            print('Savings transaction successful.')
+class CurrentAccount(BankAccount):
+    def transaction(self,amount):
+        super().transaction(amount)
+        if amount>50000:
+            print('Large transaction flagged for review.')
+        else:
+            print('Current account transaction successful.')
+class StudentAccount(BankAccount):
+    def transaction(self,amount):
+        super().transaction(amount)
+        if amount>5000:
+            print('Student account limit exceeded.')
+        else:
+            print('Student transaction successful.')
+b1=BankAccount()
+s1=SavingsAccount()
+c1=CurrentAccount()
+s2=StudentAccount()
+data=[b1,s1,c1,s2]
+for a in data:
+    a.transaction(5000)
